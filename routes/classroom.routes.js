@@ -24,7 +24,10 @@ router.post("/classroom", async (req, res) => {
 router.get("/classroom", async (req, res) => {
   try {
     // Buscar a sala no banco pelo id
-    const result = await ClassroomModel.find();
+    const result = await ClassroomModel.find().populate({
+      path: "teachers",
+      ref: "Teacher",
+    });
 
     console.log(result);
 

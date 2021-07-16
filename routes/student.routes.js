@@ -24,7 +24,10 @@ router.post("/student", async (req, res) => {
 router.get("/student", async (req, res) => {
   try {
     // Buscar o aluno no banco pelo id
-    const result = await StudentModel.find();
+    const result = await StudentModel.find().populate({
+      path: "teacher",
+      model: "Teacher",
+    });
 
     console.log(result);
 

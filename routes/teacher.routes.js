@@ -2,7 +2,7 @@ const router = require("express").Router();
 const TeacherModel = require("../models/Teacher.model");
 
 // Crud (CREATE) - HTTP POST
-// Criar um novo estudante
+// Criar um novo professor
 router.post("/teacher", async (req, res) => {
   console.log(req.body);
 
@@ -24,7 +24,10 @@ router.post("/teacher", async (req, res) => {
 router.get("/teacher", async (req, res) => {
   try {
     // Buscar o professor no banco pelo id
-    const result = await TeacherModel.find();
+    const result = await TeacherModel.find().populate({
+      path: "classroom",
+      ref: "Classroom",
+    });
 
     console.log(result);
 

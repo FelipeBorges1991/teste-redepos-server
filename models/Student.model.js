@@ -6,7 +6,6 @@ const StudentSchema = mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Teacher",
-      required: true,
       maxlength: 1,
       minlength: 0,
     },
