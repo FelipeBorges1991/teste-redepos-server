@@ -11,7 +11,7 @@ db();
 app.use(express.json());
 
 // Configurar o CORS (Cross-Origin-Resource-Sharing) para permitir que o nosso cliente React acesse este servidor de um domínio diferente
-app.use(cors({ origin: process.env.REACT_APP_URL }));
+app.use(cors({ origin: '*' }));
 
 const studentRouter = require("./routes/student.routes");
 app.use("/", studentRouter);
